@@ -12,7 +12,8 @@ import nextIcon from "@/assets/icons/nextjs-icon-svgrepo-com.svg";
 import framerMotion from "@/assets/icons/framer-motion.svg";
 import ChromeIcon from "@/assets/icons/chrome.svg";
 import GithubIcon from "@/assets/icons/github.svg";
-import mapImage from "@/assets/images/map copy.png";
+import mapImage from "@/assets/images/jalgaon_map.png";
+import Resume from "@/assets/images/resume.png";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import CardHeader from "@/components/CardHeader";
 import ToolboxItems from "@/components/ToolboxItems";
@@ -29,7 +30,7 @@ const toolboxItems = [
     iconType: HTMLIcon,
   },
   {
-    title: "CSS3",
+    title: "CSS",
     iconType: CssIcon,
   },
   {
@@ -48,22 +49,18 @@ const toolboxItems = [
     title: "NextJs",
     iconType: nextIcon,
   },
-  {
-    title: "Motion",
-    iconType: framerMotion,
-  },
 ];
 
 const hobbies = [
   {
-    title: "painting",
-    emoji: "🎨",
+    title: "Music Production",
+    emoji: "🎶",
     left: "5%",
     top: "5%",
   },
   {
-    title: "Photography",
-    emoji: "📷",
+    title: "Internation Relations",
+    emoji: "🌎",
     left: "50%",
     top: "5%",
   },
@@ -81,8 +78,8 @@ const hobbies = [
     top: "35%",
   },
   {
-    title: "Swimming",
-    emoji: "🏊",
+    title: "Sports",
+    emoji: "⚽",
     left: "70%",
     top: "45%",
   },
@@ -92,33 +89,47 @@ const hobbies = [
     left: "5%",
     top: "65%",
   },
-  {
-    title: "Reading",
-    emoji: "📚",
-    left: "45%",
-    top: "70%",
-  },
+  // {
+  //   title: "Reading",
+  //   emoji: "📚",
+  //   left: "45%",
+  //   top: "70%",
+  // },
 ];
 
+import { saveAs } from "file-saver";
+
 export const AboutSection = () => {
+  const handleDownload = () => {
+    // Assuming resume.pdf is in public/assets/docs
+    const pdfUrl = "/assets/docs/pranav_bagal.pdf";
+    // Trigger download
+    fetch(pdfUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        saveAs(blob, "pranav-bagal-resume.pdf");
+      });
+  };
   const constraintRef = useRef(null);
   return (
     <div className="py-20 lg:py-28" id="about">
       <div className="container">
         <SectionHeader
           title="About Me"
-          eyebrow="A Glimpse Into My World"
-          description="Learn more about who i am, what i do, what inspires me."
+          eyebrow="Am Pranav Bagal"
+          description="Full stack web developer."
         />
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:grid-cols-3">
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
-              <CardHeader
-                title="My Reads"
-                description="Explore the books shaping my perspectives."
-              />
+              <CardHeader title="get My Resume" description="Resume" />
               <div className="w-40 mx-auto mt-2 md:mt-0">
-                <Image src={bookImage} alt="Book Cover" />
+                <Image
+                  src={Resume}
+                  alt="Book Cover"
+                  onClick={handleDownload}
+                  className="cursor-pointer rounded-md hover:opacity-80 transition-opacity"
+                />
               </div>
             </Card>
             <Card className="h-[320px] md:col-span-3 lg:col-span-2">

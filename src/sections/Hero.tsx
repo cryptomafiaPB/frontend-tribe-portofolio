@@ -160,7 +160,7 @@ export const HeroSection = () => {
             <ArrowDown className="size-4" />
           </button>
           <Link
-            href="https://www.linkedin.com/in/morhaf-ghziel-a720a72b9/"
+            href="https://www.linkedin.com/in/pranavbagal696969/"
             className="relative"
             target="_blank"
           >

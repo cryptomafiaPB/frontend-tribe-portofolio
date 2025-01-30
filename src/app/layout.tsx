@@ -11,9 +11,15 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "Morhaf",
-  description:
-    "Building modern, high-performing web experiences with clean design and functionality. Crafted with attention to detail and supported by the expertise of Frontend Tribe.",
+  title: "Pranav Bagal",
+  description: "Pranav Bagal a Full Stack Developer and Open Source Enthusiast",
+  icons: {
+    icon: [
+      {
+        url: "/pranav-icon.ico",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -23,6 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="/pranav-icon.ico" />
       <body
         className={twMerge(
           inter.variable,
